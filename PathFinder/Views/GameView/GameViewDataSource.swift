@@ -10,12 +10,16 @@ import UIKit
 class GameViewDataSource: NSObject {
     
     // First Count is no of Columns and other one is rows
-    var gameBoard = [[Bool]](repeating: [Bool](repeating: false, count: 4), count: 5)
-    var gameState = GameState(robotPosition: GamePosition(row: 0, column: 0), flagPosition: GamePosition(row: 4, column: 3))
+    var gameBoard: [[Bool]] = []
+    var gameState: GameState = GameState(
+        robotPosition: GamePosition(row: 0, column: 0),
+        flagPosition: GamePosition(row: 4, column: 3))
     
     func reloadGrid(collectionView: UICollectionView) {
         collectionView.reloadData()
+        collectionView.scrollToItem(at: gameState.robotPosition.convertToIndexPath(), at: .centeredVertically, animated: true)
     }
+    
     
 }
 
@@ -25,6 +29,22 @@ extension GameViewDataSource {
         let row = position.row == indexPath.section
         let column = position.column == indexPath.row
         return row && column
+    }
+    
+    func isMoveable(indexPath: IndexPath) -> Bool {
+        let robotPosition = gameState.robotPosition
+        let robotIndexPath = robotPosition.convertToIndexPath()
+        if robotIndexPath == indexPath {
+            return false
+        } else if robotIndexPath.row == indexPath.row {
+            let difference = robotIndexPath.section - indexPath.section
+            return abs(difference) == 1
+        } else if robotIndexPath.section == indexPath.section {
+            let difference = robotIndexPath.row - indexPath.row
+            return abs(difference) == 1
+        }
+        
+        return false
     }
 }
 
@@ -52,7 +72,12 @@ extension GameViewDataSource: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isMoveable(indexPath: indexPath) {
+            gameState.robotPosition = GamePosition(row: indexPath.section, column: indexPath.row)
+            reloadGrid(collectionView: collectionView)
+        }
+    }
 }
 
 extension GameViewDataSource: UICollectionViewDelegateFlowLayout {

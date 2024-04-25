@@ -8,13 +8,32 @@
 import UIKit
 
 class GameViewController: BaseViewController {
+    internal init(gameBoard: [[Bool]] = [[Bool]](repeating: [Bool](repeating: false, count: 6), count: 6), gameState: GameState = GameState(
+        robotPosition: GamePosition(row: 0, column: 0),
+        flagPosition: GamePosition(row: 4, column: 3)), collectionView: UICollectionView?, dataSource: GameViewDataSource? = nil) {
+            self.gameBoard = gameBoard
+            self.gameState = gameState
+            self.collectionView = collectionView
+            self.dataSource = dataSource
+        }
+    
+    
+    // First Count is no of Columns and other one is rows
+    var gameBoard = [[Bool]](repeating: [Bool](repeating: false, count: 6), count: 6)
+    var gameState = GameState(
+        robotPosition: GamePosition(row: 0, column: 0),
+        flagPosition: GamePosition(row: 4, column: 3))
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var dataSource: GameViewDataSource!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        // Do any additional setup after loading the view.
     }
 
+    
 }
 
 // MARK: Custom Methods
@@ -23,5 +42,49 @@ extension GameViewController {
         baseNavigationBarConfigurations()
         showNavigationBar()
         title = "Pronto - Path Finder"
+        
+        dataSource.gameBoard = gameBoard
+        dataSource.gameState = gameState
+        
+        reloadTheBoard()
+    }
+    
+    func reloadTheBoard(){
+        dataSource.reloadGrid(collectionView: collectionView)
+    }
+}
+
+//MARK: IBActions
+extension GameViewController {
+    @IBAction func downButtonPressed(_ sender: Any) {
+        let robotPosition = gameState.robotPosition
+        if robotPosition.row < (gameBoard.count - 1) {
+            robotPosition.row += 1
+            reloadTheBoard()
+        }
+    }
+    
+    @IBAction func upButtonPressed(_ sender: Any) {
+        let robotPosition = gameState.robotPosition
+        if robotPosition.row > 0 {
+            robotPosition.row -= 1
+            reloadTheBoard()
+        }
+    }
+    
+    @IBAction func leftButtonPressed(_ sender: Any) {
+        let robotPosition = gameState.robotPosition
+        if robotPosition.column > 0 {
+            robotPosition.column -= 1
+            reloadTheBoard()
+        }
+    }
+    
+    @IBAction func rightButtonPressed(_ sender: Any) {
+        let robotPosition = gameState.robotPosition
+        if robotPosition.column < (gameBoard[0].count - 1) {
+            robotPosition.column += 1
+            reloadTheBoard()
+        }
     }
 }
