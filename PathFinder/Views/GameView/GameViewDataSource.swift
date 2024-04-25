@@ -15,9 +15,15 @@ class GameViewDataSource: NSObject {
         robotPosition: GamePosition(row: 0, column: 0),
         flagPosition: GamePosition(row: 4, column: 3))
     
+    var onGameCompletion: (() -> Void)?
+    
     func reloadGrid(collectionView: UICollectionView) {
         collectionView.reloadData()
         collectionView.scrollToItem(at: gameState.robotPosition.convertToIndexPath(), at: .centeredVertically, animated: true)
+        if gameState.robotPosition == gameState.flagPosition {
+            print("Finished")
+            onGameCompletion?()
+        }
     }
     
     

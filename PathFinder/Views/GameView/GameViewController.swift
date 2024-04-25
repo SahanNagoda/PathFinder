@@ -8,15 +8,6 @@
 import UIKit
 
 class GameViewController: BaseViewController {
-    internal init(gameBoard: [[Bool]] = [[Bool]](repeating: [Bool](repeating: false, count: 6), count: 6), gameState: GameState = GameState(
-        robotPosition: GamePosition(row: 0, column: 0),
-        flagPosition: GamePosition(row: 4, column: 3)), collectionView: UICollectionView?, dataSource: GameViewDataSource? = nil) {
-            self.gameBoard = gameBoard
-            self.gameState = gameState
-            self.collectionView = collectionView
-            self.dataSource = dataSource
-        }
-    
     
     // First Count is no of Columns and other one is rows
     var gameBoard = [[Bool]](repeating: [Bool](repeating: false, count: 6), count: 6)
@@ -27,12 +18,12 @@ class GameViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var dataSource: GameViewDataSource!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-
+    
     
 }
 
@@ -45,6 +36,17 @@ extension GameViewController {
         
         dataSource.gameBoard = gameBoard
         dataSource.gameState = gameState
+        
+        dataSource.onGameCompletion = {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 2, animations: {
+                    self.collectionView.alpha = 0
+                }) { (finished) in
+                    self.collectionView.isHidden = finished
+                }
+            }
+            
+        }
         
         reloadTheBoard()
     }

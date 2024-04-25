@@ -233,6 +233,8 @@
 			dependencies = (
 			);
 			name = PathFinder;
+			packageProductDependencies = (
+			);
 			productName = PathFinder;
 			productReference = 7A6BBD0E2BDAA60A00262690 /* PathFinder.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +263,8 @@
 				Base,
 			);
 			mainGroup = 7A6BBD052BDAA60A00262690;
+			packageReferences = (
+			);
 			productRefGroup = 7A6BBD0F2BDAA60A00262690 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
