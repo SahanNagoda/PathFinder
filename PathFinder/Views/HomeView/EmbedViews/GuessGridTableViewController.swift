@@ -15,8 +15,8 @@ class GuessGridTableViewController: UITableViewController {
     
     // (Row, Column)
     var onChangeCompletion: ((Int, Int) -> Void)?
-    var rowCount: Int = 4
-    var columnCount: Int = 5
+    private var rowCount: Int = 0
+    private var columnCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,12 @@ extension GuessGridTableViewController {
             self.onChangeCompletion?(rowQtyView.count, columnQtyView.count)
             checkCount()
         }
+    }
+    
+    func setupGrid(row: Int, column: Int){
+        self.columnCount = column
+        self.rowCount = row
+        configure()
     }
     
     func checkCount(){

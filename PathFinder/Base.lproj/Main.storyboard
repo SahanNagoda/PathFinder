@@ -263,6 +263,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="7wO-hP-DBo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yeJ-Jo-j4r" secondAttribute="trailing" constant="16" id="3Yz-Ou-t4f"/>
@@ -513,6 +514,9 @@
             <point key="canvasLocation" x="1101.5267175572519" y="671.83098591549299"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="m4n-c9-zrI"/>
+    </designables>
     <resources>
         <image name="back-button" width="44" height="44"/>
         <image name="down-button" width="44" height="44"/>

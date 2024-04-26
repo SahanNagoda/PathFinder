@@ -22,6 +22,7 @@ class GameViewDataSource: NSObject {
         collectionView.scrollToItem(at: gameState.robotPosition.convertToIndexPath(), at: .centeredVertically, animated: true)
         if gameState.robotPosition == gameState.flagPosition {
             print("Finished")
+            gameState.endTime = Date.now
             onGameCompletion?()
         }
     }
@@ -81,6 +82,7 @@ extension GameViewDataSource: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isMoveable(indexPath: indexPath) {
             gameState.robotPosition = GamePosition(row: indexPath.section, column: indexPath.row)
+            gameState.stepCount += 1
             reloadGrid(collectionView: collectionView)
         }
     }

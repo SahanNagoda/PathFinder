@@ -10,10 +10,15 @@ import Foundation
 class GameState {
     var robotPosition: GamePosition
     let flagPosition: GamePosition
+    let startTime: Date
+    var endTime: Date?
+    var stepCount: Int = 0
     
-    internal init(robotPosition: GamePosition, flagPosition: GamePosition) {
+    internal init(robotPosition: GamePosition, flagPosition: GamePosition, startTime: Date = Date.now, endTime: Date? = nil) {
         self.robotPosition = robotPosition
         self.flagPosition = flagPosition
+        self.startTime = startTime
+        self.endTime = endTime
     }
 }
 

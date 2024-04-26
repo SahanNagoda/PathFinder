@@ -11,8 +11,8 @@ import Lottie
 class GameViewController: BaseViewController {
     
     // First Count is no of Columns and other one is rows
-    var gameBoard = [[Bool]](repeating: [Bool](repeating: false, count: 6), count: 6)
-    var gameState = GameState(
+    private var gameBoard = [[Bool]](repeating: [Bool](repeating: false, count: 6), count: 6)
+    private var gameState = GameState(
         robotPosition: GamePosition(row: 0, column: 0),
         flagPosition: GamePosition(row: 4, column: 3))
     
@@ -39,6 +39,11 @@ extension GameViewController {
         configureDataSource()
         
         reloadTheBoard()
+    }
+    
+    func setupState(state: GameState, rows: Int, columns: Int){
+        self.gameState = state
+        self.gameBoard = [[Bool]](repeating: [Bool](repeating: false, count: columns), count: rows)
     }
     
     func reloadTheBoard(){
@@ -75,6 +80,7 @@ extension GameViewController {
         let robotPosition = gameState.robotPosition
         if robotPosition.row < (gameBoard.count - 1) {
             robotPosition.row += 1
+            gameState.stepCount += 1
             reloadTheBoard()
         }
     }
@@ -83,6 +89,7 @@ extension GameViewController {
         let robotPosition = gameState.robotPosition
         if robotPosition.row > 0 {
             robotPosition.row -= 1
+            gameState.stepCount += 1
             reloadTheBoard()
         }
     }
@@ -91,6 +98,7 @@ extension GameViewController {
         let robotPosition = gameState.robotPosition
         if robotPosition.column > 0 {
             robotPosition.column -= 1
+            gameState.stepCount += 1
             reloadTheBoard()
         }
     }
@@ -99,6 +107,7 @@ extension GameViewController {
         let robotPosition = gameState.robotPosition
         if robotPosition.column < (gameBoard[0].count - 1) {
             robotPosition.column += 1
+            gameState.stepCount += 1
             reloadTheBoard()
         }
     }

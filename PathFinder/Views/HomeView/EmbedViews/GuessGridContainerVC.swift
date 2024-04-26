@@ -13,8 +13,8 @@ class GuessGridContainerVC: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     var guessGridTableVC: GuessGridTableViewController?
-    var rowCount: Int = 4
-    var columnCount: Int = 5
+    private var rowCount: Int = 0
+    private var columnCount: Int = 0
     
     var onCompletion: (() -> Void)?
     
@@ -29,6 +29,12 @@ class GuessGridContainerVC: UIViewController {
 extension GuessGridContainerVC {
     func configure(){
         disableContinueButton()
+    }
+    
+    func setupGrid(row: Int, column: Int){
+        self.columnCount = column
+        self.rowCount = row
+        guessGridTableVC?.setupGrid(row: row, column: column)
     }
     
     func enableContinueButton() {
@@ -49,8 +55,6 @@ extension GuessGridContainerVC {
             if (segue.destination .isKind(of: GuessGridTableViewController.self)) {
                 guard let segueContainer = segue.destination as?  GuessGridTableViewController else { return }
                 guessGridTableVC = segueContainer
-                guessGridTableVC?.rowCount = rowCount
-                guessGridTableVC?.columnCount = columnCount
                 guessGridTableVC?.onChangeCompletion = { row, column in
                     if row == self.rowCount && column == self.columnCount {
                         self.enableContinueButton()
