@@ -54,7 +54,7 @@ extension HomeViewController {
         let flagPosition = getRandomPosition(row: row, column: column)
         var robotPosition = getRandomPosition(row: row, column: column)
         
-        while flagPosition == robotPosition {
+        while flagPosition.checkTheSame(position: robotPosition) {
             robotPosition = getRandomPosition(row: row, column: column)
         }
         let state = GameState(robotPosition: robotPosition, flagPosition: flagPosition)

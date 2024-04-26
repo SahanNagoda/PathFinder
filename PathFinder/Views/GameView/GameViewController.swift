@@ -77,7 +77,7 @@ extension GameViewController {
 //MARK: IBActions
 extension GameViewController {
     @IBAction func downButtonPressed(_ sender: Any) {
-        let robotPosition = gameState.robotPosition
+        guard let robotPosition = gameState.robotPosition else { return }
         if robotPosition.row < (gameBoard.count - 1) {
             robotPosition.row += 1
             gameState.stepCount += 1
@@ -86,7 +86,7 @@ extension GameViewController {
     }
     
     @IBAction func upButtonPressed(_ sender: Any) {
-        let robotPosition = gameState.robotPosition
+        guard let robotPosition = gameState.robotPosition else { return }
         if robotPosition.row > 0 {
             robotPosition.row -= 1
             gameState.stepCount += 1
@@ -95,7 +95,7 @@ extension GameViewController {
     }
     
     @IBAction func leftButtonPressed(_ sender: Any) {
-        let robotPosition = gameState.robotPosition
+        guard let robotPosition = gameState.robotPosition else { return }
         if robotPosition.column > 0 {
             robotPosition.column -= 1
             gameState.stepCount += 1
@@ -104,7 +104,7 @@ extension GameViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: Any) {
-        let robotPosition = gameState.robotPosition
+        guard let robotPosition = gameState.robotPosition else { return }
         if robotPosition.column < (gameBoard[0].count - 1) {
             robotPosition.column += 1
             gameState.stepCount += 1

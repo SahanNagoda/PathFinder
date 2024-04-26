@@ -7,5 +7,6 @@ target 'PathFinder' do
 
   # Pods for PathFinder
   pod 'lottie-ios'
+  pod 'RealmSwift', '~>10'
 
 end

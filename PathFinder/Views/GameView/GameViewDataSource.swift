@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GameViewDataSource: NSObject {
     
@@ -19,10 +20,13 @@ class GameViewDataSource: NSObject {
     
     func reloadGrid(collectionView: UICollectionView) {
         collectionView.reloadData()
-        collectionView.scrollToItem(at: gameState.robotPosition.convertToIndexPath(), at: .centeredVertically, animated: true)
-        if gameState.robotPosition == gameState.flagPosition {
+        if let robotPosition = gameState.robotPosition {
+            collectionView.scrollToItem(at: robotPosition.convertToIndexPath(), at: .centeredVertically, animated: true)
+        }
+        if gameState.robotPosition?.checkTheSame(position: gameState.flagPosition)  == true {
             print("Finished")
             gameState.endTime = Date.now
+            RealmManager.shared.saveGameState(state: gameState)
             onGameCompletion?()
         }
     }
@@ -40,7 +44,7 @@ extension GameViewDataSource {
     
     func isMoveable(indexPath: IndexPath) -> Bool {
         let robotPosition = gameState.robotPosition
-        let robotIndexPath = robotPosition.convertToIndexPath()
+        guard let robotIndexPath = robotPosition?.convertToIndexPath() else { return false }
         if robotIndexPath == indexPath {
             return false
         } else if robotIndexPath.row == indexPath.row {
@@ -69,9 +73,12 @@ extension GameViewDataSource: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell: GameCollectionViewCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: GameCollectionViewCell.cellIdentifier(), for: indexPath
         ) as? GameCollectionViewCell else { return UICollectionViewCell()}
-        if checkThePositionsEqual(position: gameState.robotPosition, indexPath: indexPath) {
+        
+        guard let robotPosition = gameState.robotPosition, let flagPosition = gameState.flagPosition else { return cell }
+        
+        if checkThePositionsEqual(position: robotPosition, indexPath: indexPath) {
             cell.setupCell(type: .robot)
-        } else if checkThePositionsEqual(position: gameState.flagPosition, indexPath: indexPath) {
+        } else if checkThePositionsEqual(position:flagPosition, indexPath: indexPath) {
             cell.setupCell(type: .flag)
         } else{
             cell.setupCell(type: .empty)

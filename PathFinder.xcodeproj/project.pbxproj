@@ -19,6 +19,7 @@
 		7A5CF9072BDBA6240073A3CE /* GuessGridContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF9062BDBA6240073A3CE /* GuessGridContainerVC.swift */; };
 		7A5CF9092BDBA9C00073A3CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF9082BDBA9C00073A3CE /* HomeViewController.swift */; };
 		7A5CF90B2BDBAD810073A3CE /* GenerateGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF90A2BDBAD810073A3CE /* GenerateGridVC.swift */; };
+		7A5CF90E2BDBC7150073A3CE /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF90D2BDBC7150073A3CE /* RealmManager.swift */; };
 		7A6BBD122BDAA60A00262690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6BBD112BDAA60A00262690 /* AppDelegate.swift */; };
 		7A6BBD192BDAA60A00262690 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7A6BBD182BDAA60A00262690 /* Base */; };
 		7A6BBD1B2BDAA60B00262690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6BBD1A2BDAA60B00262690 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		7A5CF9062BDBA6240073A3CE /* GuessGridContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessGridContainerVC.swift; sourceTree = "<group>"; };
 		7A5CF9082BDBA9C00073A3CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7A5CF90A2BDBAD810073A3CE /* GenerateGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateGridVC.swift; sourceTree = "<group>"; };
+		7A5CF90D2BDBC7150073A3CE /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		7A6BBD0E2BDAA60A00262690 /* PathFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PathFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6BBD112BDAA60A00262690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A6BBD182BDAA60A00262690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 			path = EmbedViews;
 			sourceTree = "<group>";
 		};
+		7A5CF90C2BDBC70B0073A3CE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CF90D2BDBC7150073A3CE /* RealmManager.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		7A6BBD052BDAA60A00262690 = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +210,7 @@
 		7A6BBD262BDAAAC500262690 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7A5CF90C2BDBC70B0073A3CE /* Classes */,
 				7A5CF8ED2BDABD410073A3CE /* Extensions */,
 				7A6BBD302BDAABF200262690 /* Common */,
 				7A6BBD272BDAAACC00262690 /* StoryBoards */,
@@ -433,6 +444,7 @@
 				7A5CF9002BDB908D0073A3CE /* PickingQtyView.swift in Sources */,
 				7A5CF8EB2BDAB5FE0073A3CE /* GameCollectionViewCell.swift in Sources */,
 				7A5CF8EF2BDABD530073A3CE /* UIView.swift in Sources */,
+				7A5CF90E2BDBC7150073A3CE /* RealmManager.swift in Sources */,
 				7A5CF8E82BDAB4960073A3CE /* GameViewDataSource.swift in Sources */,
 				7A5CF9072BDBA6240073A3CE /* GuessGridContainerVC.swift in Sources */,
 				7A5CF90B2BDBAD810073A3CE /* GenerateGridVC.swift in Sources */,

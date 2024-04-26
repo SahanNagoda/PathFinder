@@ -6,15 +6,23 @@
 //
 
 import Foundation
+import RealmSwift
 
-class GameState {
-    var robotPosition: GamePosition
-    let flagPosition: GamePosition
-    let startTime: Date
-    var endTime: Date?
-    var stepCount: Int = 0
+
+class GameState: Object {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var robotPosition: GamePosition?
+    @Persisted var flagPosition: GamePosition?
+    @Persisted var startTime: Date
+    @Persisted var endTime: Date?
+    @Persisted var stepCount: Int = 0
+    
+    override init() {
+        super.init()
+    }
     
     internal init(robotPosition: GamePosition, flagPosition: GamePosition, startTime: Date = Date.now, endTime: Date? = nil) {
+        super.init()
         self.robotPosition = robotPosition
         self.flagPosition = flagPosition
         self.startTime = startTime
@@ -22,11 +30,16 @@ class GameState {
     }
 }
 
-class GamePosition: Equatable {
-    var row: Int
-    var column: Int
+class GamePosition: Object {
+    @Persisted var row: Int
+    @Persisted var column: Int
+    
+    override init() {
+        super.init()
+    }
     
     internal init(row: Int, column: Int) {
+        
         self.row = row
         self.column = column
     }
@@ -35,7 +48,9 @@ class GamePosition: Equatable {
         return IndexPath(row: column, section: row)
     }
     
-    static func == (lhs: GamePosition, rhs: GamePosition) -> Bool {
-        return (lhs.row == rhs.row) && (lhs.column == rhs.column)
+    func checkTheSame(position: GamePosition?) -> Bool{
+        guard let position = position else { return false }
+
+        return (self.row == position.row) && (self.column == position.column)
     }
 }
