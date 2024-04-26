@@ -13,6 +13,12 @@
 		7A5CF8F22BDABE110073A3CE /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF8F12BDABE110073A3CE /* GameState.swift */; };
 		7A5CF8F82BDB7F710073A3CE /* win-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CF8F72BDB7F710073A3CE /* win-animation.json */; };
 		7A5CF8FC2BDB86E90073A3CE /* win-animation-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CF8FB2BDB86E90073A3CE /* win-animation-2.json */; };
+		7A5CF9002BDB908D0073A3CE /* PickingQtyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF8FF2BDB908D0073A3CE /* PickingQtyView.swift */; };
+		7A5CF9022BDB90AD0073A3CE /* PickingQtyXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A5CF9012BDB90AD0073A3CE /* PickingQtyXib.xib */; };
+		7A5CF9052BDB965D0073A3CE /* GuessGridTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF9042BDB965D0073A3CE /* GuessGridTableViewController.swift */; };
+		7A5CF9072BDBA6240073A3CE /* GuessGridContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF9062BDBA6240073A3CE /* GuessGridContainerVC.swift */; };
+		7A5CF9092BDBA9C00073A3CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF9082BDBA9C00073A3CE /* HomeViewController.swift */; };
+		7A5CF90B2BDBAD810073A3CE /* GenerateGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5CF90A2BDBAD810073A3CE /* GenerateGridVC.swift */; };
 		7A6BBD122BDAA60A00262690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6BBD112BDAA60A00262690 /* AppDelegate.swift */; };
 		7A6BBD192BDAA60A00262690 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7A6BBD182BDAA60A00262690 /* Base */; };
 		7A6BBD1B2BDAA60B00262690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6BBD1A2BDAA60B00262690 /* Assets.xcassets */; };
@@ -45,6 +51,12 @@
 		7A5CF8F12BDABE110073A3CE /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		7A5CF8F72BDB7F710073A3CE /* win-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "win-animation.json"; sourceTree = "<group>"; };
 		7A5CF8FB2BDB86E90073A3CE /* win-animation-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "win-animation-2.json"; sourceTree = "<group>"; };
+		7A5CF8FF2BDB908D0073A3CE /* PickingQtyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickingQtyView.swift; sourceTree = "<group>"; };
+		7A5CF9012BDB90AD0073A3CE /* PickingQtyXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickingQtyXib.xib; sourceTree = "<group>"; };
+		7A5CF9042BDB965D0073A3CE /* GuessGridTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessGridTableViewController.swift; sourceTree = "<group>"; };
+		7A5CF9062BDBA6240073A3CE /* GuessGridContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessGridContainerVC.swift; sourceTree = "<group>"; };
+		7A5CF9082BDBA9C00073A3CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7A5CF90A2BDBAD810073A3CE /* GenerateGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateGridVC.swift; sourceTree = "<group>"; };
 		7A6BBD0E2BDAA60A00262690 /* PathFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PathFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6BBD112BDAA60A00262690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A6BBD182BDAA60A00262690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +127,35 @@
 			path = Lotties;
 			sourceTree = "<group>";
 		};
+		7A5CF8FD2BDB905B0073A3CE /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CF9032BDB96190073A3CE /* EmbedViews */,
+				7A5CF8FE2BDB90650073A3CE /* CustomViews */,
+				7A5CF9082BDBA9C00073A3CE /* HomeViewController.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		7A5CF8FE2BDB90650073A3CE /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CF8FF2BDB908D0073A3CE /* PickingQtyView.swift */,
+				7A5CF9012BDB90AD0073A3CE /* PickingQtyXib.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		7A5CF9032BDB96190073A3CE /* EmbedViews */ = {
+			isa = PBXGroup;
+			children = (
+				7A5CF9042BDB965D0073A3CE /* GuessGridTableViewController.swift */,
+				7A5CF9062BDBA6240073A3CE /* GuessGridContainerVC.swift */,
+				7A5CF90A2BDBAD810073A3CE /* GenerateGridVC.swift */,
+			);
+			path = EmbedViews;
+			sourceTree = "<group>";
+		};
 		7A6BBD052BDAA60A00262690 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +218,7 @@
 		7A6BBD2B2BDAAB4E00262690 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A5CF8FD2BDB905B0073A3CE /* HomeView */,
 				7A6BBD2C2BDAAB6E00262690 /* GameView */,
 			);
 			path = Views;
@@ -324,6 +366,7 @@
 				7AD314502BDAB19D00C54C75 /* Roboto-Regular.ttf in Resources */,
 				7AD314532BDAB19D00C54C75 /* Roboto-Thin.ttf in Resources */,
 				7A6BBD1E2BDAA60B00262690 /* Base in Resources */,
+				7A5CF9022BDB90AD0073A3CE /* PickingQtyXib.xib in Resources */,
 				7AD3144D2BDAB19D00C54C75 /* Roboto-Bold.ttf in Resources */,
 				7AD3144F2BDAB19D00C54C75 /* Roboto-Black.ttf in Resources */,
 				7AD314582BDAB19D00C54C75 /* Roboto-BoldItalic.ttf in Resources */,
@@ -387,12 +430,17 @@
 			files = (
 				7A6BBD322BDAABFD00262690 /* BaseViewController.swift in Sources */,
 				7A6BBD2F2BDAAB8F00262690 /* GameViewController.swift in Sources */,
+				7A5CF9002BDB908D0073A3CE /* PickingQtyView.swift in Sources */,
 				7A5CF8EB2BDAB5FE0073A3CE /* GameCollectionViewCell.swift in Sources */,
 				7A5CF8EF2BDABD530073A3CE /* UIView.swift in Sources */,
 				7A5CF8E82BDAB4960073A3CE /* GameViewDataSource.swift in Sources */,
+				7A5CF9072BDBA6240073A3CE /* GuessGridContainerVC.swift in Sources */,
+				7A5CF90B2BDBAD810073A3CE /* GenerateGridVC.swift in Sources */,
 				7A5CF8F22BDABE110073A3CE /* GameState.swift in Sources */,
 				7A6BBD122BDAA60A00262690 /* AppDelegate.swift in Sources */,
 				7A6BBD292BDAAAE500262690 /* AppStoryboards.swift in Sources */,
+				7A5CF9052BDB965D0073A3CE /* GuessGridTableViewController.swift in Sources */,
+				7A5CF9092BDBA9C00073A3CE /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
