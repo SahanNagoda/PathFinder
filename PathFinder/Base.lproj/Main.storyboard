@@ -31,6 +31,16 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4n-c9-zrI" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="16" y="226" width="361" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="1V3-5M-075"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="win-animation-2"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uI2-7m-zrX">
                                 <rect key="frame" x="16" y="200.66666666666669" width="361" height="527.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -125,24 +135,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4n-c9-zrI" customClass="L">
-                                <rect key="frame" x="48" y="123" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="m4n-c9-zrI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0RH-9h-zDG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lK0-Ik-ysl" secondAttribute="trailing" constant="16" id="6X0-Zw-qkE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uI2-7m-zrX" secondAttribute="trailing" constant="16" id="8D7-kV-cd3"/>
                             <constraint firstItem="lK0-Ik-ysl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-16" id="8V0-qh-Gu6"/>
                             <constraint firstItem="lK0-Ik-ysl" firstAttribute="top" secondItem="uI2-7m-zrX" secondAttribute="bottom" constant="16" id="BJZ-3Y-FhI"/>
                             <constraint firstItem="lK0-Ik-ysl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="G8Q-nV-M3A"/>
+                            <constraint firstItem="m4n-c9-zrI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jqn-x1-iGD"/>
                             <constraint firstItem="d67-cv-lNl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="L3F-Nr-8wo"/>
                             <constraint firstItem="uI2-7m-zrX" firstAttribute="top" secondItem="d67-cv-lNl" secondAttribute="bottom" constant="20" id="MUM-xe-cOZ"/>
                             <constraint firstItem="d67-cv-lNl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PgN-nA-zs7"/>
+                            <constraint firstItem="m4n-c9-zrI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wmc-vE-Icp"/>
                             <constraint firstItem="uI2-7m-zrX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ZJy-5H-giM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m4n-c9-zrI" secondAttribute="trailing" constant="16" id="ZmL-12-mPp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d67-cv-lNl" secondAttribute="trailing" constant="16" id="emK-S7-zjo"/>
                         </constraints>
                     </view>
@@ -150,6 +159,7 @@
                     <connections>
                         <outlet property="collectionView" destination="uI2-7m-zrX" id="ItZ-Rh-HGG"/>
                         <outlet property="dataSource" destination="zPa-R3-38J" id="e9R-Nn-FWG"/>
+                        <outlet property="lottieView" destination="m4n-c9-zrI" id="MVg-Dv-g8l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

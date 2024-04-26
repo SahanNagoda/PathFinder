@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class GameViewController: BaseViewController {
     
@@ -17,6 +18,7 @@ class GameViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var dataSource: GameViewDataSource!
+    @IBOutlet weak var lottieView: LottieAnimationView!
     
     
     override func viewDidLoad() {
@@ -34,25 +36,36 @@ extension GameViewController {
         showNavigationBar()
         title = "Pronto - Path Finder"
         
-        dataSource.gameBoard = gameBoard
-        dataSource.gameState = gameState
-        
-        dataSource.onGameCompletion = {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 2, animations: {
-                    self.collectionView.alpha = 0
-                }) { (finished) in
-                    self.collectionView.isHidden = finished
-                }
-            }
-            
-        }
+        configureDataSource()
         
         reloadTheBoard()
     }
     
     func reloadTheBoard(){
         dataSource.reloadGrid(collectionView: collectionView)
+    }
+    
+    fileprivate func configureDataSource() {
+        dataSource.gameBoard = gameBoard
+        dataSource.gameState = gameState
+        
+        dataSource.onGameCompletion = {
+            self.onFinishTheGame()
+            
+        }
+    }
+    
+    fileprivate func onFinishTheGame() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 1, animations: {
+                self.collectionView.alpha = 0
+            }) { (finished) in
+                self.collectionView.isHidden = finished
+                if finished {
+                    self.lottieView.play()
+                }
+            }
+        }
     }
 }
 
