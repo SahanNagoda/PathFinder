@@ -35,6 +35,7 @@ extension GameViewController {
         baseNavigationBarConfigurations()
         showNavigationBar()
         title = "Pronto - Path Finder"
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
         configureDataSource()
         
@@ -62,14 +63,8 @@ extension GameViewController {
     
     fileprivate func onFinishTheGame() {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 1, animations: {
-                self.collectionView.alpha = 0
-            }) { (finished) in
-                self.collectionView.isHidden = finished
-                if finished {
-                    self.lottieView.play()
-                }
-            }
+            self.collectionView.isHidden = true
+            self.lottieView.play()
         }
     }
 }

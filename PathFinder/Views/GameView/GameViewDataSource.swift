@@ -26,7 +26,9 @@ class GameViewDataSource: NSObject {
         if gameState.robotPosition?.checkTheSame(position: gameState.flagPosition)  == true {
             print("Finished")
             gameState.endTime = Date.now
-            RealmManager.shared.saveGameState(state: gameState)
+            DispatchQueue.global(qos: .background).async {
+                RealmManager.shared.saveGameState(state: self.gameState)
+            }
             onGameCompletion?()
         }
     }
