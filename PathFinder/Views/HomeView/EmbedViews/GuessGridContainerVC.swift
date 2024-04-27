@@ -35,6 +35,7 @@ extension GuessGridContainerVC {
         self.columnCount = column
         self.rowCount = row
         guessGridTableVC?.setupGrid(row: row, column: column)
+        disableContinueButton()
     }
     
     func enableContinueButton() {
