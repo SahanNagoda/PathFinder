@@ -2,9 +2,18 @@
 
 Welcome to the Swift Path Finder assignment! This project aims to create a simple grid-based navigational game using Swift. Below you will find instructions on how to set up and navigate through the app.
 
-## Instructions
+## Demo
 
-### Project Overview
+<p align="center">
+  <img src="PathFinder/Examples/RPReplay_Final1714241408.gif" width="200">
+  
+</p>
+
+
+[Demo Video](https://drive.google.com/file/d/1uGdqj55cCL0HAvRnWVKldYjtpHzxzpV-/view?usp=sharing)
+
+
+## Project Overview
 
 This project follows the MVC architecture and utilizes the DataSource pattern for efficient data handling. It consists of three screens:
 
@@ -16,6 +25,7 @@ This project follows the MVC architecture and utilizes the DataSource pattern fo
 
 <p align="center">
   <img src="PathFinder/Examples/GenerateGrid.PNG" width="200">
+  <img src="PathFinder/Examples/GuessGrid.PNG" width="200">
 </p>
 
 
@@ -26,7 +36,7 @@ This project follows the MVC architecture and utilizes the DataSource pattern fo
 ### Second Screen
 
 <p align="center">
-  <img src="PathFinder/Examples/GuessGrid.PNG" width="200">
+  <img src="PathFinder/Examples/Grid.jpeg" width="200">
 </p>
 
 - The grid with the correct number of rows and columns will be displayed.
@@ -100,12 +110,3 @@ lastFive.sort() { $0.getRankValue() < $1.getRankValue() }
 
 Overall, this ranking logic provides a balanced assessment of each round's performance, taking into account the number of moves, time taken, and grid size. Rounds with fewer moves, shorter duration, and smaller grid sizes will be ranked higher, reflecting better performance.
 
-## Demo
-
-<p align="center">
-  <img src="PathFinder/Examples/RPReplay_Final1714241408.gif" width="200">
-  
-</p>
-
-
-[Demo Video](https://drive.google.com/file/d/1uGdqj55cCL0HAvRnWVKldYjtpHzxzpV-/view?usp=sharing)
