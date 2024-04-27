@@ -32,8 +32,7 @@ class GameState: Object {
     }
     
     func getRankValue() -> Double {
-        let timeDiff = abs((endTime?.timeIntervalSince1970 ?? 0) - startTime.timeIntervalSince1970)
-        return Double(stepCount) * timeDiff / Double(gridSize)
+        return GameCalculations().getRankValue(gameState: self)
     }
 }
 

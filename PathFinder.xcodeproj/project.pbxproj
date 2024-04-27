@@ -45,6 +45,7 @@
 		7AD8A84B2BDC2FA100791DB1 /* LeaderBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A84A2BDC2FA100791DB1 /* LeaderBoardTableViewCell.swift */; };
 		7AD8A84D2BDC370A00791DB1 /* RealmResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A84C2BDC370A00791DB1 /* RealmResults.swift */; };
 		7AD8A84F2BDC3BCB00791DB1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A84E2BDC3BCB00791DB1 /* Date.swift */; };
+		7AD8A8512BDD6B6A00791DB1 /* GameCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A8502BDD6B6A00791DB1 /* GameCalculations.swift */; };
 		A08DD6DDFABA397DB2DBAE97 /* Pods_PathFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E54DDBC04D4C73C6C7AF8AC /* Pods_PathFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		7AD8A84A2BDC2FA100791DB1 /* LeaderBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardTableViewCell.swift; sourceTree = "<group>"; };
 		7AD8A84C2BDC370A00791DB1 /* RealmResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmResults.swift; sourceTree = "<group>"; };
 		7AD8A84E2BDC3BCB00791DB1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		7AD8A8502BDD6B6A00791DB1 /* GameCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCalculations.swift; sourceTree = "<group>"; };
 		C0F82417315A3ACAC16FD55C /* Pods-PathFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PathFinder.release.xcconfig"; path = "Target Support Files/Pods-PathFinder/Pods-PathFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				7A5CF90D2BDBC7150073A3CE /* RealmManager.swift */,
+				7AD8A8502BDD6B6A00791DB1 /* GameCalculations.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				7A5CF9072BDBA6240073A3CE /* GuessGridContainerVC.swift in Sources */,
 				7A5CF90B2BDBAD810073A3CE /* GenerateGridVC.swift in Sources */,
 				7A5CF8F22BDABE110073A3CE /* GameState.swift in Sources */,
+				7AD8A8512BDD6B6A00791DB1 /* GameCalculations.swift in Sources */,
 				7A6BBD122BDAA60A00262690 /* AppDelegate.swift in Sources */,
 				7A6BBD292BDAAAE500262690 /* AppStoryboards.swift in Sources */,
 				7AD8A84B2BDC2FA100791DB1 /* LeaderBoardTableViewCell.swift in Sources */,

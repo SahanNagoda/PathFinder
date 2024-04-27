@@ -44,10 +44,7 @@ extension RealmManager {
     
     func getLeaderBoard() -> [GameState] {
         var history = getGamesHistory()
-        history.sort(){$0.startTime > $1.startTime}
-        var lastFive = Array(history.prefix(5))
-        lastFive.sort(){$0.getRankValue() < $1.getRankValue()}
-        return lastFive
+        return GameCalculations().rankGameHistory(history: history)
     }
 }
 

@@ -46,9 +46,8 @@ extension GameViewDataSource {
         return row && column
     }
     
-    func isMoveable(indexPath: IndexPath) -> Bool {
-        let robotPosition = gameState.robotPosition
-        guard let robotIndexPath = robotPosition?.convertToIndexPath() else { return false }
+    func isMoveable(robotPosition: GamePosition, indexPath: IndexPath) -> Bool {
+        let robotIndexPath = robotPosition.convertToIndexPath()
         if robotIndexPath == indexPath {
             return false
         } else if robotIndexPath.row == indexPath.row {
@@ -91,7 +90,8 @@ extension GameViewDataSource: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if isMoveable(indexPath: indexPath) {
+        guard let robotPosition = gameState.robotPosition else { return }
+        if isMoveable(robotPosition: robotPosition, indexPath: indexPath) {
             gameState.robotPosition = GamePosition(row: indexPath.section, column: indexPath.row)
             gameState.stepCount += 1
             reloadGrid(collectionView: collectionView)

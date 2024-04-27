@@ -47,26 +47,9 @@ extension HomeViewController {
         
         self.guessGridVC?.setupGrid(row: randomRow, column: randomColumn)
         
-        self.gameState = generateGameState(row: randomRow, column: randomColumn)
+        self.gameState = GameCalculations().generateGameState(row: randomRow, column: randomColumn)
     }
     
-    func generateGameState(row: Int, column: Int) -> GameState{
-        let flagPosition = getRandomPosition(row: row, column: column)
-        var robotPosition = getRandomPosition(row: row, column: column)
-        
-        while flagPosition.checkTheSame(position: robotPosition) {
-            robotPosition = getRandomPosition(row: row, column: column)
-        }
-        let state = GameState(robotPosition: robotPosition, flagPosition: flagPosition, gridSize: row * column)
-        
-        return state
-    }
-    
-    func getRandomPosition(row: Int, column: Int) -> GamePosition{
-        let randomRow = Int.random(in: 0..<row)
-        let randomColumn = Int.random(in: 0..<column)
-        return GamePosition(row: randomRow, column: randomColumn)
-    }
 }
 
 //MARK: Segue
@@ -92,7 +75,6 @@ extension HomeViewController {
                 generateGridVC?.onCompletion = {
                     self.generatedGridContainerView.isHidden = true
                     self.guessGridContainerView.isHidden = false
-                    
                     self.generateGrid()
                 }
             }

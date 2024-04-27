@@ -27,19 +27,10 @@ class LeaderBoardTableViewCell: UITableViewCell {
         sizeLabel.text = String(state.gridSize)
         movesLabel.text = String(state.stepCount)
         if let endTime = state.endTime {
-            timeLabel.text = getDifferenceFromTwoDates(start: state.startTime, end: endTime)
+            timeLabel.text = GameCalculations().getDifferenceFromTwoDates(start: state.startTime, end: endTime)
         }
         
     }
     
-    func getDifferenceFromTwoDates(start: Date, end: Date) -> String {
-
-           let diff = Int(end.timeIntervalSince1970 - start.timeIntervalSince1970)
-
-           let hours = diff / 3600
-           let minutes = (diff - hours * 3600) / 60
-           let seconds = (diff - hours * 3600 - minutes * 60)
-           return String(format: "%02d:%02d min", minutes, seconds)
-       }
 
 }
