@@ -29,6 +29,8 @@ class GuessGridTableViewController: UITableViewController {
 //MARK: Custom Methods
 extension GuessGridTableViewController {
     func configure(){
+        rowQtyView.count = 0
+        columnQtyView.count = 0
         hintLabel.text = "Hint: Total number of cells is \(rowCount * columnCount)"
         rowQtyView.onChangeCompletion = { [weak self] _ in
             guard let self = self else { return }

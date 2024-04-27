@@ -10,17 +10,12 @@ import RealmSwift
 
 class RealmManager {
     static let shared = RealmManager()
-    
-    private let realm: Realm
-    
-    private init() {
-        // Initialize Realm
-        realm = try! Realm()
-    }
+
     
     // MARK: - CRUD Operations
     
     func addObject<T: Object>(_ object: T) {
+        let realm = try! Realm()
         do {
             try realm.write {
                 realm.add(object)
@@ -30,17 +25,9 @@ class RealmManager {
         }
     }
     
-    func deleteObject<T: Object>(_ object: T) {
-        do {
-            try realm.write {
-                realm.delete(object)
-            }
-        } catch {
-            print("Error deleting object from Realm: \(error)")
-        }
-    }
     
     func getAllObjects<T: Object>(_ objectType: T.Type) -> Results<T>? {
+        let realm = try! Realm()
         return realm.objects(objectType)
     }
 }
@@ -50,4 +37,18 @@ extension RealmManager {
     func saveGameState(state: GameState){
         addObject(state)
     }
+    
+    func getGamesHistory() -> [GameState] {
+        return getAllObjects(GameState.self)?.toArray() ?? []
+    }
+    
+    func getLeaderBoard() -> [GameState] {
+        var history = getGamesHistory()
+        history.sort(){$0.startTime > $1.startTime}
+        var lastFive = Array(history.prefix(5))
+        lastFive.sort(){$0.getRankValue() < $1.getRankValue()}
+        return lastFive
+    }
 }
+
+

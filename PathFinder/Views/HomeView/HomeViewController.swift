@@ -19,9 +19,9 @@ class HomeViewController: BaseViewController {
     var columnCount: Int = 5
     
     var gameState: GameState?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configure()
     }
 
@@ -57,7 +57,7 @@ extension HomeViewController {
         while flagPosition.checkTheSame(position: robotPosition) {
             robotPosition = getRandomPosition(row: row, column: column)
         }
-        let state = GameState(robotPosition: robotPosition, flagPosition: flagPosition)
+        let state = GameState(robotPosition: robotPosition, flagPosition: flagPosition, gridSize: row * column)
         
         return state
     }

@@ -16,17 +16,24 @@ class GameState: Object {
     @Persisted var startTime: Date
     @Persisted var endTime: Date?
     @Persisted var stepCount: Int = 0
+    @Persisted var gridSize: Int
     
     override init() {
         super.init()
     }
     
-    internal init(robotPosition: GamePosition, flagPosition: GamePosition, startTime: Date = Date.now, endTime: Date? = nil) {
+    internal init(robotPosition: GamePosition, flagPosition: GamePosition, startTime: Date = Date.now, endTime: Date? = nil, gridSize: Int) {
         super.init()
         self.robotPosition = robotPosition
         self.flagPosition = flagPosition
         self.startTime = startTime
         self.endTime = endTime
+        self.gridSize = gridSize
+    }
+    
+    func getRankValue() -> Double {
+        let timeDiff = abs((endTime?.timeIntervalSince1970 ?? 0) - startTime.timeIntervalSince1970)
+        return Double(stepCount) * timeDiff / Double(gridSize)
     }
 }
 

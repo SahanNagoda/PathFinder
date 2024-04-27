@@ -14,7 +14,8 @@ class GameViewDataSource: NSObject {
     var gameBoard: [[Bool]] = []
     var gameState: GameState = GameState(
         robotPosition: GamePosition(row: 0, column: 0),
-        flagPosition: GamePosition(row: 4, column: 3))
+        flagPosition: GamePosition(row: 4, column: 3),
+        gridSize: 0)
     
     var onGameCompletion: (() -> Void)?
     
@@ -26,10 +27,11 @@ class GameViewDataSource: NSObject {
         if gameState.robotPosition?.checkTheSame(position: gameState.flagPosition)  == true {
             print("Finished")
             gameState.endTime = Date.now
-            DispatchQueue.global(qos: .background).async {
+            onGameCompletion?()
+            DispatchQueue.main.async {
                 RealmManager.shared.saveGameState(state: self.gameState)
             }
-            onGameCompletion?()
+            
         }
     }
     

@@ -14,7 +14,8 @@ class GameViewController: BaseViewController {
     private var gameBoard = [[Bool]](repeating: [Bool](repeating: false, count: 6), count: 6)
     private var gameState = GameState(
         robotPosition: GamePosition(row: 0, column: 0),
-        flagPosition: GamePosition(row: 4, column: 3))
+        flagPosition: GamePosition(row: 4, column: 3), 
+        gridSize: 0)
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var dataSource: GameViewDataSource!
@@ -57,7 +58,11 @@ extension GameViewController {
         
         dataSource.onGameCompletion = {
             self.onFinishTheGame()
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1 ){
+                guard let vc = AppStoryboards.mainStoryboard()
+                    .instantiateViewController(identifier: "LeaderBoardViewController") as? LeaderBoardViewController else { return }
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
