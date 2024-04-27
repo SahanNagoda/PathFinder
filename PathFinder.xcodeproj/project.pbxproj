@@ -93,6 +93,7 @@
 		7AD8A84C2BDC370A00791DB1 /* RealmResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmResults.swift; sourceTree = "<group>"; };
 		7AD8A84E2BDC3BCB00791DB1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		7AD8A8502BDD6B6A00791DB1 /* GameCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCalculations.swift; sourceTree = "<group>"; };
+		7AD8A8522BDD795200791DB1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C0F82417315A3ACAC16FD55C /* Pods-PathFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PathFinder.release.xcconfig"; path = "Target Support Files/Pods-PathFinder/Pods-PathFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +185,7 @@
 		7A6BBD052BDAA60A00262690 = {
 			isa = PBXGroup;
 			children = (
+				7AD8A8522BDD795200791DB1 /* README.md */,
 				7A6BBD102BDAA60A00262690 /* PathFinder */,
 				7A6BBD0F2BDAA60A00262690 /* Products */,
 				8DF87687BF97CD39014932FD /* Pods */,
