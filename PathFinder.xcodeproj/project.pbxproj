@@ -46,8 +46,21 @@
 		7AD8A84D2BDC370A00791DB1 /* RealmResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A84C2BDC370A00791DB1 /* RealmResults.swift */; };
 		7AD8A84F2BDC3BCB00791DB1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A84E2BDC3BCB00791DB1 /* Date.swift */; };
 		7AD8A8512BDD6B6A00791DB1 /* GameCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A8502BDD6B6A00791DB1 /* GameCalculations.swift */; };
+		7AD8A8612BDD857A00791DB1 /* GameCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A8602BDD857A00791DB1 /* GameCalculationsTests.swift */; };
+		7AD8A8632BDD890700791DB1 /* GamePositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A8622BDD890700791DB1 /* GamePositionTests.swift */; };
+		7AD8A8652BDD898700791DB1 /* GameViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8A8642BDD898700791DB1 /* GameViewDataSourceTests.swift */; };
 		A08DD6DDFABA397DB2DBAE97 /* Pods_PathFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E54DDBC04D4C73C6C7AF8AC /* Pods_PathFinder.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7AD8A85B2BDD84EA00791DB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A6BBD062BDAA60A00262690 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A6BBD0D2BDAA60A00262690;
+			remoteInfo = PathFinder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0E54DDBC04D4C73C6C7AF8AC /* Pods_PathFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PathFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +107,10 @@
 		7AD8A84E2BDC3BCB00791DB1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		7AD8A8502BDD6B6A00791DB1 /* GameCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCalculations.swift; sourceTree = "<group>"; };
 		7AD8A8522BDD795200791DB1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7AD8A8572BDD84E900791DB1 /* PathFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PathFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AD8A8602BDD857A00791DB1 /* GameCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCalculationsTests.swift; sourceTree = "<group>"; };
+		7AD8A8622BDD890700791DB1 /* GamePositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePositionTests.swift; sourceTree = "<group>"; };
+		7AD8A8642BDD898700791DB1 /* GameViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewDataSourceTests.swift; sourceTree = "<group>"; };
 		C0F82417315A3ACAC16FD55C /* Pods-PathFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PathFinder.release.xcconfig"; path = "Target Support Files/Pods-PathFinder/Pods-PathFinder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +120,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A08DD6DDFABA397DB2DBAE97 /* Pods_PathFinder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AD8A8542BDD84E900791DB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +211,7 @@
 			children = (
 				7AD8A8522BDD795200791DB1 /* README.md */,
 				7A6BBD102BDAA60A00262690 /* PathFinder */,
+				7AD8A8582BDD84E900791DB1 /* PathFinderTests */,
 				7A6BBD0F2BDAA60A00262690 /* Products */,
 				8DF87687BF97CD39014932FD /* Pods */,
 				AB3163E6A6262200DC67CD43 /* Frameworks */,
@@ -197,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				7A6BBD0E2BDAA60A00262690 /* PathFinder.app */,
+				7AD8A8572BDD84E900791DB1 /* PathFinderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -327,6 +353,16 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
+		7AD8A8582BDD84E900791DB1 /* PathFinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AD8A8602BDD857A00791DB1 /* GameCalculationsTests.swift */,
+				7AD8A8622BDD890700791DB1 /* GamePositionTests.swift */,
+				7AD8A8642BDD898700791DB1 /* GameViewDataSourceTests.swift */,
+			);
+			path = PathFinderTests;
+			sourceTree = "<group>";
+		};
 		8DF87687BF97CD39014932FD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +402,24 @@
 			productReference = 7A6BBD0E2BDAA60A00262690 /* PathFinder.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7AD8A8562BDD84E900791DB1 /* PathFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AD8A85D2BDD84EA00791DB1 /* Build configuration list for PBXNativeTarget "PathFinderTests" */;
+			buildPhases = (
+				7AD8A8532BDD84E900791DB1 /* Sources */,
+				7AD8A8542BDD84E900791DB1 /* Frameworks */,
+				7AD8A8552BDD84E900791DB1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AD8A85C2BDD84EA00791DB1 /* PBXTargetDependency */,
+			);
+			name = PathFinderTests;
+			productName = PathFinderTests;
+			productReference = 7AD8A8572BDD84E900791DB1 /* PathFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -378,6 +432,10 @@
 				TargetAttributes = {
 					7A6BBD0D2BDAA60A00262690 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					7AD8A8562BDD84E900791DB1 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 7A6BBD0D2BDAA60A00262690;
 					};
 				};
 			};
@@ -395,6 +453,7 @@
 			projectRoot = "";
 			targets = (
 				7A6BBD0D2BDAA60A00262690 /* PathFinder */,
+				7AD8A8562BDD84E900791DB1 /* PathFinderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -423,6 +482,13 @@
 				7AD314512BDAB19D00C54C75 /* Roboto-MediumItalic.ttf in Resources */,
 				7A5CF8FC2BDB86E90073A3CE /* win-animation-2.json in Resources */,
 				7A6BBD192BDAA60A00262690 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AD8A8552BDD84E900791DB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +564,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7AD8A8532BDD84E900791DB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AD8A8632BDD890700791DB1 /* GamePositionTests.swift in Sources */,
+				7AD8A8652BDD898700791DB1 /* GameViewDataSourceTests.swift in Sources */,
+				7AD8A8612BDD857A00791DB1 /* GameCalculationsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7AD8A85C2BDD84EA00791DB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A6BBD0D2BDAA60A00262690 /* PathFinder */;
+			targetProxy = 7AD8A85B2BDD84EA00791DB1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7A6BBD172BDAA60A00262690 /* Main.storyboard */ = {
@@ -699,6 +783,42 @@
 			};
 			name = Release;
 		};
+		7AD8A85E2BDD84EA00791DB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z2D3W88VKU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahan.PathFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PathFinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PathFinder";
+			};
+			name = Debug;
+		};
+		7AD8A85F2BDD84EA00791DB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z2D3W88VKU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahan.PathFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PathFinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PathFinder";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -716,6 +836,15 @@
 			buildConfigurations = (
 				7A6BBD232BDAA60B00262690 /* Debug */,
 				7A6BBD242BDAA60B00262690 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AD8A85D2BDD84EA00791DB1 /* Build configuration list for PBXNativeTarget "PathFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AD8A85E2BDD84EA00791DB1 /* Debug */,
+				7AD8A85F2BDD84EA00791DB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
