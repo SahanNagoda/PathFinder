@@ -8,46 +8,69 @@
 import UIKit
 import RealmSwift
 
+/// DataSource class responsible for managing the game grid and interactions with the UICollectionView.
 class GameViewDataSource: NSObject {
     
-    // First Count is no of Columns and other one is rows
+    /// Represents the game board grid, where each element indicates whether a cell is occupied.
     var gameBoard: [[Bool]] = []
+    
+    /// Represents the current state of the game.
     var gameState: GameState = GameState(
         robotPosition: GamePosition(row: 0, column: 0),
         flagPosition: GamePosition(row: 4, column: 3),
         gridSize: 0)
     
+    /// Closure called when the game is completed.
     var onGameCompletion: (() -> Void)?
     
+    /// Reloads the UICollectionView associated with the game grid.
+    ///
+    /// - Parameter collectionView: The UICollectionView to reload.
     func reloadGrid(collectionView: UICollectionView) {
         collectionView.reloadData()
+        
+        // Scroll to the current robot position.
         if let robotPosition = gameState.robotPosition {
             collectionView.scrollToItem(at: robotPosition.convertToIndexPath(), at: .centeredVertically, animated: true)
         }
+        
+        // Check if the robot has reached the flag position to complete the game.
         if gameState.robotPosition?.checkTheSame(position: gameState.flagPosition)  == true {
-            print("Finished")
             gameState.endTime = Date.now
             onGameCompletion?()
+            
+            // Save the game state to the database asynchronously.
             DispatchQueue.main.async {
                 RealmManager.shared.saveGameState(state: self.gameState)
             }
-            
         }
     }
-    
-    
 }
 
-// MARK: Custom Methods
+// MARK: - Custom Methods
 extension GameViewDataSource {
+    
+    /// Checks if the given position and index path represent the same cell in the grid.
+    ///
+    /// - Parameters:
+    ///   - position: The position to compare.
+    ///   - indexPath: The index path to compare.
+    /// - Returns: `true` if the positions are equal, otherwise `false`.
     func checkThePositionsEqual(position: GamePosition, indexPath: IndexPath) -> Bool{
         let row = position.row == indexPath.section
         let column = position.column == indexPath.row
         return row && column
     }
     
+    /// Determines if the robot can move to the specified index path.
+    ///
+    /// - Parameters:
+    ///   - robotPosition: The current position of the robot.
+    ///   - indexPath: The index path to move to.
+    /// - Returns: `true` if the robot can move, otherwise `false`.
     func isMoveable(robotPosition: GamePosition, indexPath: IndexPath) -> Bool {
         let robotIndexPath = robotPosition.convertToIndexPath()
+        
         if robotIndexPath == indexPath {
             return false
         } else if robotIndexPath.row == indexPath.row {
@@ -62,6 +85,7 @@ extension GameViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension GameViewDataSource: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -99,7 +123,9 @@ extension GameViewDataSource: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension GameViewDataSource: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

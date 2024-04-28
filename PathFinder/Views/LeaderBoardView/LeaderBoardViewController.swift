@@ -7,11 +7,19 @@
 
 import UIKit
 
+/// A view controller displaying the leaderboard.
 class LeaderBoardViewController: UIViewController {
-
+    
+    /// The data source managing the leaderboard table view.
     @IBOutlet var dataSource: LeaderBoardDataSource!
+    
+    /// The table view displaying the leaderboard.
     @IBOutlet weak var tableView: UITableView!
+    
+    /// The constraint controlling the height of the table view.
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    
+    /// A text view displaying additional information about a selected game state.
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
@@ -22,8 +30,10 @@ class LeaderBoardViewController: UIViewController {
     
 }
 
-//MARK: Custom Methods
+// MARK: - Custom Methods
 extension LeaderBoardViewController {
+    
+    /// Configures the initial setup of the view controller.
     func configure() {
         self.navigationItem.setHidesBackButton(true, animated: true)
         title = "Path Finder Leader Board"
@@ -41,19 +51,22 @@ extension LeaderBoardViewController {
         textView.text = ""
     }
     
+    /// Observes changes in the content size of the table view and adjusts its height accordingly.
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if(keyPath == "contentSize") {
             if let newvalue = change?[.newKey] {
                 let newsize  = newvalue as! CGSize
                 tableViewHeightConstraint.constant = newsize.height
-
+                
             }
         }
     }
 }
 
-//MARK: IBAction
+// MARK: - IBAction
 extension LeaderBoardViewController {
+    
+    /// Handles the action when the "New Game" button is pressed.
     @IBAction func newGamePressed(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
